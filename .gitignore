@@ -1,3 +1,5 @@
+*.suo
+*.vs
 [Ll]ibrary/
 [Ll]ogs/
 [Tt]emp/
