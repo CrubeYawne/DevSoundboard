@@ -30,14 +30,14 @@
         {
             this.pnlButtons = new System.Windows.Forms.Panel();
             this.txtFolderName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnLoadFolder = new System.Windows.Forms.Button();
+            this.btnStopSFX = new System.Windows.Forms.Button();
+            this.numVolume = new System.Windows.Forms.NumericUpDown();
             this.lblCurrentDirectory = new System.Windows.Forms.Label();
             this.pnlFiles = new System.Windows.Forms.Panel();
             this.lblFolders = new System.Windows.Forms.Label();
             this.lblFiles = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolume)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlButtons
@@ -61,48 +61,49 @@
             this.txtFolderName.Size = new System.Drawing.Size(614, 20);
             this.txtFolderName.TabIndex = 0;
             // 
-            // button1
+            // btnLoadFolder
             // 
-            this.button1.Location = new System.Drawing.Point(632, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Load";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLoadFolder.Location = new System.Drawing.Point(632, 10);
+            this.btnLoadFolder.Name = "btnLoadFolder";
+            this.btnLoadFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadFolder.TabIndex = 1;
+            this.btnLoadFolder.Text = "Load";
+            this.btnLoadFolder.UseVisualStyleBackColor = true;
+            this.btnLoadFolder.Click += new System.EventHandler(this.btnLoadFolder_Click);
             // 
-            // button2
+            // btnStopSFX
             // 
-            this.button2.Location = new System.Drawing.Point(713, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Stop SFX";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnStopSFX.Location = new System.Drawing.Point(713, 10);
+            this.btnStopSFX.Name = "btnStopSFX";
+            this.btnStopSFX.Size = new System.Drawing.Size(75, 23);
+            this.btnStopSFX.TabIndex = 2;
+            this.btnStopSFX.Text = "Stop SFX";
+            this.btnStopSFX.UseVisualStyleBackColor = true;
+            this.btnStopSFX.Click += new System.EventHandler(this.btnStopSFX_Click);
             // 
-            // numericUpDown1
+            // numVolume
             // 
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.numVolume.Increment = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(795, 12);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numVolume.Location = new System.Drawing.Point(795, 12);
+            this.numVolume.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(54, 20);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numVolume.Name = "numVolume";
+            this.numVolume.Size = new System.Drawing.Size(54, 20);
+            this.numVolume.TabIndex = 3;
+            this.numVolume.Value = new decimal(new int[] {
             300,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numVolume.Visible = false;
+            this.numVolume.ValueChanged += new System.EventHandler(this.numVolume_ValueChanged);
             // 
             // lblCurrentDirectory
             // 
@@ -152,15 +153,15 @@
             this.Controls.Add(this.lblFiles);
             this.Controls.Add(this.lblFolders);
             this.Controls.Add(this.lblCurrentDirectory);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.numVolume);
+            this.Controls.Add(this.btnStopSFX);
+            this.Controls.Add(this.btnLoadFolder);
             this.Controls.Add(this.txtFolderName);
             this.Controls.Add(this.pnlFiles);
             this.Controls.Add(this.pnlButtons);
             this.Name = "Form1";
             this.Text = "Sound Board";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolume)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,9 +171,9 @@
 
         private System.Windows.Forms.Panel pnlButtons;
         private System.Windows.Forms.TextBox txtFolderName;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btnLoadFolder;
+        private System.Windows.Forms.Button btnStopSFX;
+        private System.Windows.Forms.NumericUpDown numVolume;
         private System.Windows.Forms.Label lblCurrentDirectory;
         private System.Windows.Forms.Panel pnlFiles;
         private System.Windows.Forms.Label lblFolders;
