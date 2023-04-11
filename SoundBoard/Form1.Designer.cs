@@ -39,6 +39,7 @@
             this.lblFiles = new System.Windows.Forms.Label();
             this.folderBrowserMain = new System.Windows.Forms.FolderBrowserDialog();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.btnWhiteList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numVolume)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,7 +145,9 @@
             // 
             // lblFiles
             // 
-            this.lblFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFiles.AutoSize = true;
             this.lblFiles.Location = new System.Drawing.Point(483, 76);
             this.lblFiles.Name = "lblFiles";
@@ -163,11 +166,23 @@
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
+            // btnWhiteList
+            // 
+            this.btnWhiteList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWhiteList.Location = new System.Drawing.Point(719, 50);
+            this.btnWhiteList.Name = "btnWhiteList";
+            this.btnWhiteList.Size = new System.Drawing.Size(156, 23);
+            this.btnWhiteList.TabIndex = 7;
+            this.btnWhiteList.Text = "White/Black List";
+            this.btnWhiteList.UseVisualStyleBackColor = true;
+            this.btnWhiteList.Click += new System.EventHandler(this.btnWhiteList_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 409);
+            this.Controls.Add(this.btnWhiteList);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.lblFiles);
             this.Controls.Add(this.lblFolders);
@@ -199,6 +214,7 @@
         private System.Windows.Forms.Label lblFiles;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserMain;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Button btnWhiteList;
     }
 }
 

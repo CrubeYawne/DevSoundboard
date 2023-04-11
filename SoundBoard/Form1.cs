@@ -30,6 +30,12 @@ namespace SoundBoard
             numVolume.Value = button_size;
 
             player = new System.Media.SoundPlayer();
+
+            if(!String.IsNullOrEmpty(Properties.Settings.Default.LastFolderUsed))
+            {
+                txtFolderName.Text = Properties.Settings.Default.LastFolderUsed;
+            }
+
         }
 
         /// <summary>
@@ -123,6 +129,9 @@ namespace SoundBoard
                 return;
             }
 
+            Properties.Settings.Default.LastFolderUsed = fn;
+            Properties.Settings.Default.Save();
+
             //remove existing buttons from last directory
             pnlButtons.Controls.Clear();
             pnlFiles.Controls.Clear();
@@ -153,12 +162,43 @@ namespace SoundBoard
 
             int file_idx = 0;
 
+            System.Text.RegularExpressions.Regex whiteListMatch = new System.Text.RegularExpressions.Regex(Properties.Settings.Default.Whitelist, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+            System.Text.RegularExpressions.Regex blackListMatch = new System.Text.RegularExpressions.Regex(Properties.Settings.Default.Blacklist, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+            
             //loop over all files in the directory and create button for each file
             foreach (string f in files)
             {
                 var filename = Path.GetFileName(f);
 
-                CreateFileItem(pnlFiles, f, filename, ++file_idx, Color.Black);
+                var createLineItem = false;
+
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.Blacklist))//if the file path DOES NOT match the black list
+                {
+                    createLineItem = !blackListMatch.IsMatch(f);
+                }
+
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.Whitelist))// if the file path MATCHES the white list
+                {
+                    createLineItem =  whiteListMatch.IsMatch(f);
+                }
+                
+                
+                //if neither whitelist or blacklist is set, flag item to show
+                if(string.IsNullOrEmpty(Properties.Settings.Default.Whitelist) && string.IsNullOrEmpty(Properties.Settings.Default.Blacklist))
+                {
+                    createLineItem = true;
+                }
+
+
+                if (createLineItem)
+                {
+                    CreateFileItem(pnlFiles, f, filename, file_idx, Color.Black);
+                    ++file_idx;
+                }
+
+                
             }
 
             
@@ -256,5 +296,16 @@ namespace SoundBoard
         {
 
         }
+
+        private void btnWhiteList_Click(object sender, EventArgs e)
+        {
+            frmColourListEditor fcl = new frmColourListEditor();
+
+            fcl.ShowDialog();
+
+            
+        }
+
+        
     }
 }

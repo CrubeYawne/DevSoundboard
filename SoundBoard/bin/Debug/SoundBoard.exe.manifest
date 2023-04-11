@@ -42,24 +42,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SoundBoard.exe" size="15872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SoundBoard.exe" size="19456">
       <assemblyIdentity name="SoundBoard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PGfQ0gUqHNaa0fW6ZuLsF1zfpL6QP2myqpa282e4/Nc=</dsig:DigestValue>
+        <dsig:DigestValue>0Ct/lI+ux2z20An240qjxmfDfTD0zf2PGiN16081V5A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="SoundBoard.exe.config" size="189">
+  <file name="SoundBoard.exe.config" size="1146">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>fzxBSr45tumrN8SNWWL0IeqRlxoh8+san/F4n6/GZJ4=</dsig:DigestValue>
+      <dsig:DigestValue>yEeuGI0SHLPeLoKmKlpqqLcM75IxcjH0KhzZX7oNDxs=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
