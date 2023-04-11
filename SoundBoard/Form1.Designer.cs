@@ -37,33 +37,37 @@
             this.pnlFiles = new System.Windows.Forms.Panel();
             this.lblFolders = new System.Windows.Forms.Label();
             this.lblFiles = new System.Windows.Forms.Label();
+            this.folderBrowserMain = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnBrowse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numVolume)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlButtons
             // 
-            this.pnlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlButtons.AutoScroll = true;
             this.pnlButtons.Location = new System.Drawing.Point(12, 92);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(424, 305);
+            this.pnlButtons.Size = new System.Drawing.Size(468, 305);
             this.pnlButtons.TabIndex = 0;
             // 
             // txtFolderName
             // 
             this.txtFolderName.AccessibleDescription = "Directory";
+            this.txtFolderName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFolderName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtFolderName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.txtFolderName.Location = new System.Drawing.Point(12, 12);
+            this.txtFolderName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.txtFolderName.Location = new System.Drawing.Point(97, 12);
             this.txtFolderName.Name = "txtFolderName";
-            this.txtFolderName.Size = new System.Drawing.Size(614, 20);
+            this.txtFolderName.Size = new System.Drawing.Size(616, 20);
             this.txtFolderName.TabIndex = 0;
             // 
             // btnLoadFolder
             // 
-            this.btnLoadFolder.Location = new System.Drawing.Point(632, 10);
+            this.btnLoadFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadFolder.Location = new System.Drawing.Point(719, 12);
             this.btnLoadFolder.Name = "btnLoadFolder";
             this.btnLoadFolder.Size = new System.Drawing.Size(75, 23);
             this.btnLoadFolder.TabIndex = 1;
@@ -73,7 +77,8 @@
             // 
             // btnStopSFX
             // 
-            this.btnStopSFX.Location = new System.Drawing.Point(713, 10);
+            this.btnStopSFX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStopSFX.Location = new System.Drawing.Point(800, 12);
             this.btnStopSFX.Name = "btnStopSFX";
             this.btnStopSFX.Size = new System.Drawing.Size(75, 23);
             this.btnStopSFX.TabIndex = 2;
@@ -83,12 +88,13 @@
             // 
             // numVolume
             // 
+            this.numVolume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numVolume.Increment = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numVolume.Location = new System.Drawing.Point(795, 12);
+            this.numVolume.Location = new System.Drawing.Point(882, 14);
             this.numVolume.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -122,9 +128,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFiles.AutoScroll = true;
-            this.pnlFiles.Location = new System.Drawing.Point(442, 92);
+            this.pnlFiles.Location = new System.Drawing.Point(486, 92);
             this.pnlFiles.Name = "pnlFiles";
-            this.pnlFiles.Size = new System.Drawing.Size(424, 305);
+            this.pnlFiles.Size = new System.Drawing.Size(451, 305);
             this.pnlFiles.TabIndex = 0;
             // 
             // lblFolders
@@ -138,18 +144,31 @@
             // 
             // lblFiles
             // 
+            this.lblFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFiles.AutoSize = true;
-            this.lblFiles.Location = new System.Drawing.Point(439, 76);
+            this.lblFiles.Location = new System.Drawing.Point(483, 76);
             this.lblFiles.Name = "lblFiles";
             this.lblFiles.Size = new System.Drawing.Size(28, 13);
             this.lblFiles.TabIndex = 5;
             this.lblFiles.Text = "Files";
+            this.lblFiles.Click += new System.EventHandler(this.lblFiles_Click);
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(15, 10);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 6;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 409);
+            this.ClientSize = new System.Drawing.Size(944, 409);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.lblFiles);
             this.Controls.Add(this.lblFolders);
             this.Controls.Add(this.lblCurrentDirectory);
@@ -178,6 +197,8 @@
         private System.Windows.Forms.Panel pnlFiles;
         private System.Windows.Forms.Label lblFolders;
         private System.Windows.Forms.Label lblFiles;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserMain;
+        private System.Windows.Forms.Button btnBrowse;
     }
 }
 
