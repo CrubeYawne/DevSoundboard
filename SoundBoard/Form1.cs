@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SoundBoard
 {
@@ -48,7 +49,7 @@ namespace SoundBoard
         /// <param name="forec">button fore colour</param>
         private void CreateFolderItem(Panel targetDestination, string fname, string text, int idx, Color forec)
         {
-            Button new_button = new Button();
+            System.Windows.Forms.Button new_button = new System.Windows.Forms.Button();
             
             //display/visual code
             new_button.ForeColor = forec;            
@@ -139,6 +140,7 @@ namespace SoundBoard
             int idx = 0;
 
             lblCurrentDirectory.Text = string.Format(_currentDirectory , fn);
+            clipboard_directory = fn;
 
             //create button to traverse up one directory to the parent
             CreateFolderItem(pnlButtons,Directory.GetParent(fn).FullName, "Parent" , ++idx, Color.Yellow);
@@ -236,11 +238,12 @@ namespace SoundBoard
         void btnGeneratedFolder_Click(object sender, EventArgs e)
         {
 
-            string tag = (sender as Button).Tag.ToString();
+            string tag = (sender as System.Windows.Forms.Button).Tag.ToString();
 
             //if the tag matches a directory, load the directory
             if (Directory.Exists(tag))
             {
+                clipboard_directory = tag;
                 lblCurrentDirectory.Text = string.Format(_currentDirectory, tag);
                 LoadFolder(tag);
             }
@@ -248,6 +251,8 @@ namespace SoundBoard
                 MessageBox.Show(string.Format("Folder Does not exist: {0}", tag));
             
         }
+
+        private string clipboard_directory;
 
         private void btnStopSFX_Click(object sender, EventArgs e)
         {
@@ -275,7 +280,7 @@ namespace SoundBoard
         /// <param name="e"></param>
         private void lblCurrentDirectory_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Clipboard.SetText((sender as Label).Text);
+            System.Windows.Forms.Clipboard.SetText(clipboard_directory);
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
